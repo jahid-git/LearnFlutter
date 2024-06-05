@@ -31,11 +31,48 @@ class MyApp extends StatelessWidget {
         SizedBox(height: 10,),
         CustomButton("Btn 5"),
         SizedBox(height: 10,),
-
+        MyStateFullWidget()
       ],
     ),);
   }
 }
+
+class MyStateFullWidget extends StatefulWidget {
+  const MyStateFullWidget({super.key});
+
+  @override
+  State<MyStateFullWidget> createState() => _MyStateFullWidgetState();
+}
+
+class _MyStateFullWidgetState extends State<MyStateFullWidget> {
+  String txt = "";
+  int count = 0;
+
+  @override
+  void initState() {
+    txt = "Click here!";
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ElevatedButton(
+          onPressed: () {
+            if (kDebugMode) {
+              setState(() {
+                txt = "Clicked: ${++count}";
+              });
+            }
+          },
+          child: Text(txt),
+        )
+      ],
+    );
+  }
+}
+
 
 class CustomButton extends StatelessWidget {
   final String text;
