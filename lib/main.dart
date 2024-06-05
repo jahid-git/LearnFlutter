@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ListViewPage();
+    return const Center(child: StackExample());
+      //const ListViewPage();
     // return const Center(child: Column(
     //   mainAxisAlignment: MainAxisAlignment.center,
     //   children: [
@@ -130,8 +131,6 @@ class MyContainer extends StatelessWidget {
     );
   }
 }
-
-
 
 
 class ListViewPage extends StatefulWidget {
@@ -291,4 +290,41 @@ class _ListViewPageState extends State<ListViewPage> {
 
     );
   }
+}
+
+class StackExample extends StatelessWidget {
+  const StackExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          height: 200,
+          width: 200,
+          color: Colors.red,
+        ),
+        Positioned(
+          top: 0,
+          left: 0,
+          child: Container(
+            height: 100,
+            width: 100,
+            color: Colors.blue,
+          ),
+        ),
+        Positioned(
+          bottom: -20,
+          right: 10,
+          child: Container(
+            height: 50,
+            width: 50,
+            color: Colors.green,
+          ),
+        ),
+      ],
+    );
+  }
+
 }
