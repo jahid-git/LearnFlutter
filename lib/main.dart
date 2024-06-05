@@ -55,7 +55,7 @@ class CustomButton extends StatelessWidget {
         width: 100,
         decoration: const BoxDecoration(
           shape: BoxShape.rectangle,
-          color: Colors.blu
+          color: Colors.blue
         ),
         child: Center(child: Text(text)),
       ),
