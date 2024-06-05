@@ -31,7 +31,9 @@ class MyApp extends StatelessWidget {
         SizedBox(height: 10,),
         CustomButton("Btn 5"),
         SizedBox(height: 10,),
-        MyStateFullWidget()
+        MyStateFullWidget(),
+        SizedBox(height: 10,),
+        MyContainer(),
       ],
     ),);
   }
@@ -98,5 +100,32 @@ class CustomButton extends StatelessWidget {
       ),
     );
   }
+}
 
+class MyContainer extends StatelessWidget {
+  const MyContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 100,
+      width: 100,
+      alignment: Alignment.center,
+      margin: const EdgeInsets.all(30),
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.deepPurple,
+        shape: BoxShape.rectangle,
+        border: Border.all(
+            color: Colors.red,
+            width: 1
+        ),
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+        ),
+      ),
+      transform: Matrix4.rotationZ(0.5),
+      child: const Text("Container"),
+    );
+  }
 }
