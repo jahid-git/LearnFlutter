@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: GridViewBuilderExample(),);
+    return const Center(child: CardExample(),);
+      // const Center(child: GridViewBuilderExample(),);
       //const Center(child: GridViewExample());
       // const Center(child: StackExample());
       //const ListViewPage();
@@ -396,6 +397,28 @@ class _GridViewBuilderExampleState extends State<GridViewBuilderExample> {
             ),
           );
         }
+    );
+  }
+}
+
+
+class CardExample extends StatelessWidget {
+  const CardExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.blue,
+      elevation: 8,
+      shadowColor: Colors.red,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+          side: const BorderSide(width: 1)
+      ),
+      child: const SizedBox(
+          width: 150,
+          height: 150
+      ),
     );
   }
 }
