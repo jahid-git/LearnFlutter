@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: CardExample(),);
+    return const Center(child: TextExample());
+      // const Center(child: CardExample(),);
       // const Center(child: GridViewBuilderExample(),);
-      //const Center(child: GridViewExample());
+      // const Center(child: GridViewExample());
       // const Center(child: StackExample());
       //const ListViewPage();
     // return const Center(child: Column(
@@ -422,3 +423,27 @@ class CardExample extends StatelessWidget {
     );
   }
 }
+
+class TextExample extends StatelessWidget {
+  const TextExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      "This is text, suhfuihsifguhsfguisdfhgbhmjkghjkghjkbghjghuoisdfhgui",
+      overflow: TextOverflow.ellipsis,
+      maxLines: 2,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: Colors.red,
+        fontSize: 50,
+        fontStyle: FontStyle.italic,
+        fontWeight: FontWeight.bold,
+        wordSpacing: 16,
+        letterSpacing: 8,
+        fontFamily: 'Poppins'
+      ),
+    );
+  }
+}
+
