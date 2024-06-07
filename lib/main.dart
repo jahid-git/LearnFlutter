@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: StackExample());
+    return const Center(child: GridViewExample());
+      // const Center(child: StackExample());
       //const ListViewPage();
     // return const Center(child: Column(
     //   mainAxisAlignment: MainAxisAlignment.center,
@@ -327,4 +328,35 @@ class StackExample extends StatelessWidget {
     );
   }
 
+}
+
+class GridViewExample extends StatefulWidget {
+  const GridViewExample({super.key});
+
+  @override
+  State<GridViewExample> createState() => _GridViewExampleState();
+}
+
+class _GridViewExampleState extends State<GridViewExample> {
+  final items = List.generate(100, (counter)=> '$counter');
+
+  @override
+  Widget build(BuildContext context) {
+    return  GridView.count(
+      crossAxisCount: 3,
+      mainAxisSpacing: 5,
+      crossAxisSpacing: 5,
+      children: [
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+        Container(color: Colors.green,),
+      ],
+    );
+  }
 }
