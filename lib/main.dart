@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: TextExample());
+    return const Center(child: TextRichExample());
+      // const Center(child: TextExample());
       // const Center(child: CardExample(),);
       // const Center(child: GridViewBuilderExample(),);
       // const Center(child: GridViewExample());
@@ -443,6 +444,25 @@ class TextExample extends StatelessWidget {
         letterSpacing: 8,
         fontFamily: 'Poppins'
       ),
+    );
+  }
+}
+
+
+class TextRichExample extends StatelessWidget {
+  const TextRichExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text.rich(
+      style: TextStyle(fontFamily: 'Poppins', fontSize: 30, color: Colors.red),
+      TextSpan(
+        text: "Hi",
+        children: [
+          TextSpan(text: " I am a ", style: TextStyle(color: Colors.green)),
+          TextSpan(text: "boy!", style: TextStyle(color: Colors.red))
+        ]
+      )
     );
   }
 }
