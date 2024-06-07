@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: GridViewExample());
+    return const Center(child: GridViewBuilderExample(),);
+      //const Center(child: GridViewExample());
       // const Center(child: StackExample());
       //const ListViewPage();
     // return const Center(child: Column(
@@ -357,6 +358,44 @@ class _GridViewExampleState extends State<GridViewExample> {
         Container(color: Colors.green,),
         Container(color: Colors.green,),
       ],
+    );
+  }
+}
+
+
+class GridViewBuilderExample extends StatefulWidget {
+  const GridViewBuilderExample({super.key});
+
+  @override
+  State<GridViewBuilderExample> createState() => _GridViewBuilderExampleState();
+}
+
+class _GridViewBuilderExampleState extends State<GridViewBuilderExample> {
+
+  List<int> items = [];
+
+  @override
+  void initState() {
+    for(int i = 1; i < 10;i++){
+      items.add(i);
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        itemCount: items.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        itemBuilder: (ctx, index){
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: Container(
+              color: Colors.red,
+              child: Center(child: Text('${items.elementAt(index)}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),)),
+            ),
+          );
+        }
     );
   }
 }
